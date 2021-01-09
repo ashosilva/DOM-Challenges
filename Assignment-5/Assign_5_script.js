@@ -14,35 +14,31 @@ submitButton.addEventListener("click", event =>{
 
     //check for invalid inputs: addRow
     if(addRow < 0){
-        alert("Invalid Input! negative not allowed!")
+        alert("Invalid Input! negative value not allowed!")
     }else if(addRow !== 0 || addRow !== ''){
         addNewRows(addRow);    
     }
     //check for invalid inputs: addCol
     if(addCol < 0){
-        alert("Invalid Input! negative not allowed!")
+        alert("Invalid Input! negative value not allowed!")
     }else if(addCol !== 0 || addCol !== ''){
         addNewColumns(addCol);    
     }
     //check for invalid inputs: remRow
-    if(remRow < 0 || remRow > currentRow){
-        alert("Invalid Input! Can't remove a negative number of rows!")
+    if(remRow < 0 || remRow >= currentRow){
+        alert("Invalid Input! exceeds the amount of rows to be deleted!")
     }else if(remRow !== 0){    
         removeRows(remRow);
     }
     //check for invalid inputs: remRow
-    if(remCol < 0 || remCol > currentCol){
-        alert("Invalid Input! Can't remove a negative number of columns!")
+    if(remCol < 0 || remCol >= currentCol){
+        alert("Invalid Input! exceeds the amount of columns to be deleted!")
     }else if(remCol !== 0){    
         removeColumns(remCol);
     }
 
 
-    // document.querySelector("#rowValue").innerText = "Row(s) Added: " + addRow;
-    // document.querySelector("#colValue").innerText = "Column(s) Added: " + addCol;
-    // document.querySelector("#rowValue").innerText = "Row(s) Removed: " + remRow;
-    // document.querySelector("#colValue").innerText = "Column(s) Removed: " + remCol;
-
+    document.querySelector("#dimension").innerText = currentRow + "X" + currentCol;
     document.getElementById("addRowT").value = '';
     document.getElementById("addColT").value = '';
     document.getElementById("remRowT").value = '';
