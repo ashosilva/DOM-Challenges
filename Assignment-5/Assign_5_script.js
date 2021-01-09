@@ -1,7 +1,8 @@
 let table = document.getElementById("grid-table");
 let currentRow = 0;
 let currentCol = 0;
-
+let currentColor = "red";
+let defaultColor = "white";
 
 const submitButton = document.querySelector("#submit-button");
 
@@ -56,8 +57,8 @@ function addNewRows(numRow){
         for(let j = 0; j < currentCol; j ++){          
             //add new cell   
             let newCell = newRow.insertCell(j);             
-            //newCell.style.backgroundColor = defaultColor;           
-            //changeCellColor(newCell);
+            newCell.style.backgroundColor = defaultColor;           
+            changeCellColor(newCell);
             //changeColorMouseDownAndHover(newCell); 
         }
 
@@ -74,8 +75,8 @@ function addNewColumns(numCol){
         for(let j = currentCol; j < currentCol + numCol; j++){     
             //add new cell       
             let newCell = row.insertCell(j);                 
-            //newCell.style.backgroundColor = defaultColor;           
-            //changeCellColor(newCell);    
+            newCell.style.backgroundColor = defaultColor;           
+            changeCellColor(newCell);    
             //changeColorMouseDownAndHover(newCell);      
         }
     }
@@ -107,8 +108,18 @@ function removeColumns(numCol){
     currentCol -= numCol;
 }
 
+let dropDownMenu = document.getElementById("color-dropdowns");
+//Dropdown menu listener
+dropDownMenu.addEventListener("click", event =>{
+    currentColor = dropDownMenu.value;
+});
 
-
+//Change cell color on click
+function changeCellColor(currentCell){
+    currentCell.addEventListener("click", event =>{
+        currentCell.style.backgroundColor = currentColor;
+    });
+}
 
 
 
