@@ -1,0 +1,1 @@
+Remove the comment on number 5, at line 21, in Assign_3_script.js for it to work
