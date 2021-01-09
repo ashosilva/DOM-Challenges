@@ -48,7 +48,11 @@ volumeButton.addEventListener("click", event => {
   let volume
   let radius
   radius = document.getElementById("radius").value;
-
-  volume = Math.pow(radius,3)*Math.PI*(4/3);
-   alert("Volume: " + volume.toFixed(2));
+  if(radius >= 0){
+    volume = Math.pow(radius,3)*Math.PI*(4/3);
+    alert("Volume: " + volume.toFixed(2));
+  }else{
+      alert("INPUT INVALID, please input a NON-NEGATIVE value")
+  }
+  
 });
