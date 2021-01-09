@@ -59,7 +59,7 @@ function addNewRows(numRow){
             let newCell = newRow.insertCell(j);             
             newCell.style.backgroundColor = defaultColor;           
             changeCellColor(newCell);
-            //changeColorMouseDownAndHover(newCell); 
+            clickAndHoldColorChange(newCell); 
         }
 
     }
@@ -77,7 +77,7 @@ function addNewColumns(numCol){
             let newCell = row.insertCell(j);                 
             newCell.style.backgroundColor = defaultColor;           
             changeCellColor(newCell);    
-            //changeColorMouseDownAndHover(newCell);      
+            clickAndHoldColorChange(newCell);      
         }
     }
 
@@ -117,12 +117,7 @@ dropDownMenu.addEventListener("click", event =>{
 //Change cell color on click
 function changeCellColor(currentCell){
     currentCell.addEventListener("click", event =>{
-        if(currentCell.style.backgroundColor == currentColor){
-            currentCell.style.backgroundColor = defaultColor;
-        }else{
-            currentCell.style.backgroundColor = currentColor;
-        }
-        
+        currentCell.style.backgroundColor = currentColor;
     });
 }
 
@@ -175,6 +170,35 @@ buttonClearAll.addEventListener("click", event =>{
     }
   
 });
+
+
+
+let clickAndHold = false;
+//Change color of multiple cells on mouse clicked and hold
+function clickAndHoldColorChange(currentCell){
+    
+    currentCell.addEventListener("mousedown", event =>{        
+        clickAndHold = true; 
+        currentCell.style.backgroundColor = currentColor;
+    });
+
+    currentCell.addEventListener("mouseup", event =>{       
+        clickAndHold = false;                
+    });
+
+    
+    currentCell.addEventListener("mouseover", event =>{         
+        if(clickAndHold){
+            currentCell.style.backgroundColor = currentColor;
+        }        
+    });    
+}
+const notInGrid = document.getElementsByTagName("html")[0];
+notInGrid.addEventListener("mouseup", event =>{       
+    clickAndHold = false;
+});
+
+
 
 
 
