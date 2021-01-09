@@ -108,7 +108,7 @@ function removeColumns(numCol){
     currentCol -= numCol;
 }
 
-let dropDownMenu = document.getElementById("color-dropdowns");
+let dropDownMenu = document.querySelector("#color-dropdowns");
 //Dropdown menu listener
 dropDownMenu.addEventListener("click", event =>{
     currentColor = dropDownMenu.value;
@@ -121,6 +121,22 @@ function changeCellColor(currentCell){
     });
 }
 
+const buttonColorUncolored = document.querySelector("#colorUncolored");
+//Change color of all uncolored cells
+buttonColorUncolored.addEventListener("click", event =>{
+
+    for(let i = 0; i < currentRow; i++){
+        
+        let row = document.getElementById("row"+ (i+1).toString());
+        for(let j = 0; j < currentCol; j ++){            
+            if(row.cells[j].style.backgroundColor == defaultColor){
+                row.cells[j].style.backgroundColor = currentColor;
+            }
+        }    
+
+    }
+
+});
 
 
 
