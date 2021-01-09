@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Assign_5_style.css">
 </head>
 <body>
-    
+    <h1>ROW AND COLUMN EDITOR</h1>
+    <div id="options">
+        <div id="labels">                
+            <div class = "labelChild">
+                <label for="addRow">Add Rows:</label>
+            </div>
+            <div class = "labelChild">
+                <label for="addCol">Add Columns:</label>
+            </div>
+        </div>
+
+        <div id = "textfields">                
+            <input type="text" id="addRow">
+            <input type="text" id="addCol">
+        </div>
+    </div>
+
+    <div>
+        <br>
+        <button type="button" id="submit-button">Submit</button>
+    </div>
+
+    <div id="current-values">
+        <h2 id="rowValue"></h2>
+        <h2 id="colValue"></h2>
+    </div>
+
+    <table id="grid-table">              
+              
+    </table>
+
+    <script src ="Assign_5_script.js"></script>
 </body>
 </html>
