@@ -117,7 +117,12 @@ dropDownMenu.addEventListener("click", event =>{
 //Change cell color on click
 function changeCellColor(currentCell){
     currentCell.addEventListener("click", event =>{
-        currentCell.style.backgroundColor = currentColor;
+        if(currentCell.style.backgroundColor == currentColor){
+            currentCell.style.backgroundColor = defaultColor;
+        }else{
+            currentCell.style.backgroundColor = currentColor;
+        }
+        
     });
 }
 
@@ -139,10 +144,37 @@ buttonColorUncolored.addEventListener("click", event =>{
 });
 
 
+const buttonColorAll = document.querySelector("#colorAll");
+const buttonClearAll = document.querySelector("#clearAll");
 
 
+//Change color of all cells
+buttonColorAll.addEventListener("click", event =>{
+
+    for(let i = 0; i < currentRow; i++){
+        
+        let row = document.getElementById("row"+(i+1).toString());
+        for(let j = 0; j < currentCol; j ++){            
+            row.cells[j].style.backgroundColor = currentColor;
+        }        
+        
+    }
+});
 
 
+//Return color of all cells to default color
+buttonClearAll.addEventListener("click", event =>{
+
+    for(let i = 0; i < currentRow; i++){
+        
+        let row = document.getElementById("row"+(i+1).toString());
+        for(let j = 0; j < currentCol; j ++){            
+            row.cells[j].style.backgroundColor = defaultColor;
+        }     
+
+    }
+  
+});
 
 
 
